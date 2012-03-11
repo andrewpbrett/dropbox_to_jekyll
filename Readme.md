@@ -22,11 +22,15 @@ You'll also need a dropbox account (obviously).
 
 ### Instructions
 
-- Install redis
-- Install the aformentioned gems
-- Create a [Dropbox app](https://www.dropbox.com/developers/apps)
-- `git clone https://github.com/andrewpbrett/dropbox_to_jekyll.git`
-- Create a config.yml as follows:
+Install redis
+
+Install the aformentioned gems
+
+Create a [Dropbox app](https://www.dropbox.com/developers/apps)
+
+`git clone https://github.com/andrewpbrett/dropbox_to_jekyll.git`
+
+Create a config.yml as follows:
 
     app_key: YOUR_APP_KEY 
     app_secret: YOUR_APP_SECRET 
@@ -34,4 +38,6 @@ You'll also need a dropbox account (obviously).
     access_token_secret: YOUR_ACCESS_TOKEN_SECRET 
     jekyll_path: PATH_TO_YOUR_JEKYLL_INSTALL 
 
-- `ruby import.rb`
+Then just run `ruby import.rb`
+
+A word to the wise about using [cron with RVM](http://beginrescueend.com/integration/cron/): You'll need to use the full path to your ruby in your cron file as cron does not read your .bashrc file. **Do NOT** get this path to your ruby as you might think, by running `which ruby` -- you'll want the ruby located at $rvm_path/bin, which is different (or was for me).  

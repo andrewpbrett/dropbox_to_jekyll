@@ -13,6 +13,7 @@ Right now it's fairly customized for my setup, but feel free to modify/hack it t
 The script assumes you have redis running and that the 'dropbox' namespace is empty.
 
 Gems:
+
 - git
 - redis
 - redis-namespace

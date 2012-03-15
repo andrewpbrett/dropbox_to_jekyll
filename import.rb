@@ -42,7 +42,7 @@ begin
       url = "http://dl.dropbox.com/u/#{uid.to_s + URI.encode(file["path"]).gsub("Public\/", "")}"
       f = File.open(filename, "w")
       f.write "---\n"
-      f.write "layout: photo\n"
+      f.write "type: photo\n"
       f.write "source_url: #{url}\n"
       f.write "thumbnail_url: #{url.gsub("Photos/", "Photos/Thumbnails/")}\n"
       f.write "caption: \"\"\n"

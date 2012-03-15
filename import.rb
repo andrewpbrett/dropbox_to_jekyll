@@ -28,6 +28,8 @@ begin
 
   r.set "hash", photo_folder["hash"]
   file_count = 0  
+  g = Git.open jekyll_path
+  g.pull(g.remote('origin'))
   photo_folder["contents"].each do |file|
     unless r.sismember("paths", file["path"]) or file["is_dir"]
       r.sadd "paths", file["path"]
@@ -53,8 +55,6 @@ begin
       file_count += 1
     end
   end
-  g = Git.open jekyll_path
-  g.pull(g.remote('origin'))
   g.add '.'
   g.commit "imported #{file_count} photos from Dropbox public folder"
   g.push(g.remote('origin'))
